@@ -9,11 +9,11 @@ const organizationJsonLd = {
   url: BASE_URL,
   logo: {
     '@type': 'ImageObject',
-    url: `${BASE_URL}/apple-icon.png`,
-    width: 180,
-    height: 180,
+    url: `${BASE_URL}/favicon.png`,
+    width: 512,
+    height: 512,
   },
-  image: `${BASE_URL}/apple-icon.png`,
+  image: `${BASE_URL}/favicon.png`,
   description: 'UK retailer of TP-Link networking products including routers, Wi-Fi extenders, mesh systems, switches and adapters.',
   address: {
     '@type': 'PostalAddress',
