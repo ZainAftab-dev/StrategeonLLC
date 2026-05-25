@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="USB network adapter and Ethernet adapter">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#e2edf7"/></linearGradient>
+    <linearGradient id="unit" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#20364a" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="420" height="320" rx="8" fill="url(#bg)"/>
+  <rect x="74" y="239" width="272" height="24" rx="12" fill="#c4d3e1" opacity=".75"/>
+  <g filter="url(#s)">
+    <rect x="118" y="74" width="82" height="162" rx="20" fill="url(#unit)" stroke="#d3e0eb" stroke-width="4"/>
+    <rect x="142" y="108" width="34" height="13" rx="6" fill="#1366d6"/>
+    <circle cx="159" cy="151" r="18" fill="#00a7c7"/>
+    <rect x="137" y="192" width="44" height="10" rx="5" fill="#101820"/>
+    <rect x="228" y="112" width="84" height="66" rx="12" fill="#101820"/>
+    <rect x="250" y="136" width="40" height="14" rx="3" fill="#00a7c7"/>
+    <rect x="246" y="178" width="48" height="42" rx="8" fill="url(#unit)" stroke="#d3e0eb" stroke-width="4"/>
+  </g>
+</svg>
