@@ -489,9 +489,9 @@ function getRoute() {
   return path;
 }
 
-function App() {
+function App({ initialRoute } = {}) {
   const cartLoadedRef = useRef(false);
-  const [route, setRoute] = useState(getRoute);
+  const [route, setRoute] = useState(() => initialRoute || getRoute());
   const [cart, setCart] = useState([]);
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
