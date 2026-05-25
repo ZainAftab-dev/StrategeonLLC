@@ -52,6 +52,9 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.strategeonllc.com',
   },
+  verification: {
+    google: 'AxDb-5wB7TiG3sZnmmnyMZY-L_ao2AEzS2j662ACL5c',
+  },
 };
 
 export default function RootLayout({ children }) {
