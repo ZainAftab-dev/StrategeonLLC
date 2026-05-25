@@ -1,4 +1,5 @@
 import '../src/styles.css';
+import './globals.css';
 
 export const metadata = {
   title: 'Strategeon | Networking & Computer Accessories UK',
