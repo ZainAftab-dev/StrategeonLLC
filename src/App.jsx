@@ -421,7 +421,7 @@ const productProfiles = {
 };
 
 function formatMoney(value) {
-  return `GBP ${Number(value).toFixed(2)}`;
+  return `£${Number(value).toFixed(2)}`;
 }
 
 function safeSetLocalStorage(key, value) {
@@ -1354,8 +1354,8 @@ function ProductGrid({ products, navigate, onAddToCart, onProductSelect }) {
             <p>{categoryNames[product.category]}</p>
             <h3>{product.name}</h3>
             <div className="rating-line" aria-label={`${product.rating} out of 5 stars`}>
-              <span>{'*'.repeat(Math.round(Number(product.rating)))}</span>
-              <a>{product.reviews.toLocaleString()}</a>
+              <span className="stars">{'★'.repeat(Math.round(Number(product.rating)))}</span>
+              <span className="review-count">{product.reviews.toLocaleString()}</span>
             </div>
             <div className="price-line">
               <strong>{formatMoney(product.price)}</strong>

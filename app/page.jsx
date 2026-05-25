@@ -7,13 +7,33 @@ const organizationJsonLd = {
   '@type': 'Organization',
   name: 'Strategeon',
   url: BASE_URL,
-  logo: `${BASE_URL}/apple-icon.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/apple-icon.png`,
+    width: 180,
+    height: 180,
+  },
+  image: `${BASE_URL}/apple-icon.png`,
   description: 'UK retailer of TP-Link networking products including routers, Wi-Fi extenders, mesh systems, switches and adapters.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '01/98 Grovepark Street',
+    addressLocality: 'Glasgow',
+    postalCode: 'G20 7JQ',
+    addressCountry: 'GB',
+  },
   contactPoint: {
     '@type': 'ContactPoint',
+    telephone: '+44-7308-647170',
+    email: 'info@strategeonllc.com',
     contactType: 'customer support',
     availableLanguage: 'English',
+    areaServed: 'GB',
   },
+  sameAs: [
+    'https://www.instagram.com/',
+    'https://www.linkedin.com/',
+  ],
 };
 
 const websiteJsonLd = {
