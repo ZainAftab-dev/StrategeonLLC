@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="LTE router with antennas">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#e3edf5"/></linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#20364a" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="420" height="320" rx="8" fill="url(#bg)"/>
+  <rect x="66" y="232" width="288" height="24" rx="12" fill="#c4d3e1" opacity=".75"/>
+  <g filter="url(#s)">
+    <path d="M136 126 L108 54" stroke="#1366d6" stroke-width="11" stroke-linecap="round"/>
+    <path d="M284 126 L312 54" stroke="#1366d6" stroke-width="11" stroke-linecap="round"/>
+    <rect x="84" y="124" width="252" height="98" rx="16" fill="#101820"/>
+    <rect x="116" y="158" width="44" height="18" rx="5" fill="#00a7c7"/>
+    <rect x="180" y="158" width="44" height="18" rx="5" fill="#1c8d57"/>
+    <rect x="244" y="158" width="44" height="18" rx="5" fill="#d66a16"/>
+    <circle cx="119" cy="199" r="5" fill="#8090a1"/>
+    <circle cx="145" cy="199" r="5" fill="#8090a1"/>
+  </g>
+</svg>

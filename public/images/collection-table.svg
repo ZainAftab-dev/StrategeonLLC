@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Table collection">
+  <rect width="900" height="1200" fill="#cdb893"/>
+  <rect x="110" y="710" width="680" height="80" fill="#211f1a"/>
+  <path d="M220 490h460c-24 170-96 268-230 268S244 660 220 490Z" fill="#fffaf2"/>
+  <path d="M248 490c0-54 90-98 202-98s202 44 202 98-90 98-202 98-202-44-202-98Z" fill="#d8cfc0"/>
+  <rect x="555" y="300" width="90" height="190" fill="#4f5c3a"/>
+</svg>

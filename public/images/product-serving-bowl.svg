@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-label="Hand-thrown serving bowl">
+  <rect width="900" height="1125" fill="#ded0bc"/>
+  <rect x="180" y="710" width="540" height="80" fill="#b7a891"/>
+  <path d="M160 510h580c-28 210-118 330-290 330S188 720 160 510Z" fill="#fffaf2"/>
+  <path d="M160 510c0-70 130-125 290-125s290 55 290 125-130 125-290 125-290-55-290-125Z" fill="#d8cfc0"/>
+  <path d="M250 505c0-42 90-76 200-76s200 34 200 76-90 76-200 76-200-34-200-76Z" fill="#f4efe6"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="Deco mesh Wi-Fi units">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#e4edf6"/></linearGradient>
+    <linearGradient id="unit" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#20364a" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="420" height="320" rx="8" fill="url(#bg)"/>
+  <rect x="72" y="240" width="276" height="24" rx="12" fill="#c4d3e1" opacity=".75"/>
+  <g filter="url(#s)">
+    <rect x="118" y="68" width="82" height="168" rx="26" fill="url(#unit)" stroke="#d3e0eb" stroke-width="4"/>
+    <rect x="220" y="92" width="82" height="144" rx="24" fill="url(#unit)" stroke="#d3e0eb" stroke-width="4"/>
+    <circle cx="159" cy="145" r="19" fill="#1366d6"/>
+    <circle cx="261" cy="158" r="18" fill="#00a7c7"/>
+    <rect x="136" y="188" width="46" height="10" rx="5" fill="#101820"/>
+    <rect x="239" y="198" width="44" height="10" rx="5" fill="#101820"/>
+  </g>
+</svg>
