@@ -9,7 +9,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const product = getProductById(params.id);
+  const { id } = await params;
+  const product = getProductById(id);
   if (!product) return {};
 
   const desc = `Buy ${product.name} for £${product.price.toFixed(2)}. ${product.specs.join(', ')}. ${product.stock}. Fast UK delivery from Strategeon.`;
@@ -32,8 +33,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ProductPage({ params }) {
-  const product = getProductById(params.id);
+export default async function ProductPage({ params }) {
+  const { id } = await params;
+  const product = getProductById(id);
   if (!product) notFound();
 
   const jsonLd = {
@@ -76,7 +78,7 @@ export default function ProductPage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <App initialRoute={`/product/${params.id}`} />
+      <App initialRoute={`/product/${product.id}`} />
     </>
   );
 }

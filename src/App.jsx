@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Image from 'next/image';
 import {
   ArrowRight,
   Check,
@@ -441,15 +442,27 @@ function safeRemoveLocalStorage(key) {
   }
 }
 
-function ProductImage({ product, src = product.image, alt = product.name, width = 720, height = 560, className = '', loading = 'lazy' }) {
+function ProductImage({
+  product,
+  src = product.image,
+  alt = product.name,
+  width = 720,
+  height = 560,
+  className = '',
+  loading = 'lazy',
+  sizes = '(max-width: 620px) 48vw, (max-width: 1020px) 32vw, 18vw',
+}) {
+  const priority = loading === 'eager';
   return (
-    <img
+    <Image
       className={className}
       src={src}
       alt={alt}
-      width={width}
-      height={height}
-      loading={loading}
+      width={Number(width)}
+      height={Number(height)}
+      sizes={sizes}
+      priority={priority}
+      loading={priority ? undefined : 'lazy'}
       onError={(event) => {
         event.currentTarget.onerror = null;
         event.currentTarget.src = fallbackImages[product.category] || '/images/product-router-ax73.svg';
@@ -790,7 +803,7 @@ function HomePage({ navigate, onAddToCart, onProductSelect }) {
           <div className="hero-product-stage" aria-label="Featured TP-Link product photos">
             {heroProducts.map((product) => (
               <button type="button" key={product.id} onClick={() => onProductSelect(product)} aria-label={`Quick view ${product.name}`}>
-                <ProductImage product={product} loading="eager" />
+                <ProductImage product={product} loading="eager" sizes="(max-width: 1020px) 45vw, 22vw" />
                 <span>{product.name.replace('TP-Link ', '').split(' ').slice(0, 3).join(' ')}</span>
               </button>
             ))}
@@ -831,12 +844,13 @@ function HomePage({ navigate, onAddToCart, onProductSelect }) {
               type="button"
               onClick={() => navigate('/collections')}
             >
-              <img
+              <Image
                 src={category.image}
                 alt=""
-                width="420"
-                height="320"
+                width={420}
+                height={320}
                 loading="lazy"
+                sizes="(max-width: 620px) 48vw, (max-width: 1020px) 32vw, 18vw"
                 onError={(event) => {
                   event.currentTarget.onerror = null;
                   event.currentTarget.src = fallbackImages[category.id] || '/images/product-router-ax73.svg';
@@ -878,17 +892,17 @@ function HomePage({ navigate, onAddToCart, onProductSelect }) {
         </div>
         <div className="review-grid wide">
           <article>
-            {useCaseProducts.gaming && <ProductImage product={useCaseProducts.gaming} width="360" height="220" />}
+            {useCaseProducts.gaming && <ProductImage product={useCaseProducts.gaming} width="360" height="220" sizes="(max-width: 760px) 90vw, (max-width: 1020px) 45vw, 30vw" />}
             <strong>Gaming and streaming</strong>
             <span>Buyers usually compare Wi-Fi 6 routers, gigabit ports, and OFDMA support before upgrading.</span>
           </article>
           <article>
-            {useCaseProducts.office && <ProductImage product={useCaseProducts.office} width="360" height="220" />}
+            {useCaseProducts.office && <ProductImage product={useCaseProducts.office} width="360" height="220" sizes="(max-width: 760px) 90vw, (max-width: 1020px) 45vw, 30vw" />}
             <strong>Home office desks</strong>
             <span>Switches and USB Ethernet adapters help keep laptops, docks, NAS devices, and printers stable.</span>
           </article>
           <article>
-            {useCaseProducts.deadZones && <ProductImage product={useCaseProducts.deadZones} width="360" height="220" />}
+            {useCaseProducts.deadZones && <ProductImage product={useCaseProducts.deadZones} width="360" height="220" sizes="(max-width: 760px) 90vw, (max-width: 1020px) 45vw, 30vw" />}
             <strong>Dead-zone fixes</strong>
             <span>Extenders are cheaper for one room. Mesh is better when several rooms need consistent roaming.</span>
           </article>
@@ -1031,11 +1045,13 @@ function CollectionsPage({ navigate, onCategoryChange }) {
         <div className="collection-page-grid">
           {categories.map((category) => (
             <article className="collection-panel" key={category.id}>
-              <img
+              <Image
                 src={category.image}
                 alt=""
-                width="520"
-                height="360"
+                width={520}
+                height={360}
+                loading="lazy"
+                sizes="(max-width: 1020px) 100vw, 260px"
                 onError={(event) => {
                   event.currentTarget.onerror = null;
                   event.currentTarget.src = fallbackImages[category.id] || '/images/product-router-ax73.svg';
@@ -1277,7 +1293,14 @@ function ProductPage({ product, onAddToCart, navigate }) {
       <section className="product-detail">
         <div className="product-gallery">
           <div className="gallery-main">
-            <ProductImage product={product} src={activeImage} width="900" height="720" loading="eager" />
+            <ProductImage
+              product={product}
+              src={activeImage}
+              width="900"
+              height="720"
+              loading="eager"
+              sizes="(max-width: 760px) 100vw, (max-width: 1020px) 90vw, 45vw"
+            />
           </div>
           {gallery.length > 1 && (
             <div className="gallery-thumbs" aria-label={`${product.name} image gallery`}>
@@ -1289,7 +1312,7 @@ function ProductPage({ product, onAddToCart, navigate }) {
                   onClick={() => setActiveImage(image.src)}
                   aria-label={`Show ${image.label}`}
                 >
-                  <ProductImage product={product} src={image.src} alt="" width="160" height="120" />
+                  <ProductImage product={product} src={image.src} alt="" width="160" height="120" sizes="160px" />
                   <span>{image.label}</span>
                 </button>
               ))}
@@ -1385,7 +1408,7 @@ function QuickView({ product, navigate, onAddToCart, onClose }) {
         <button className="icon-button quick-close" type="button" onClick={onClose} aria-label="Close quick view">
           <X size={20} />
         </button>
-        <ProductImage product={product} loading="eager" />
+        <ProductImage product={product} loading="eager" sizes="(max-width: 1020px) 90vw, 414px" />
         <div>
           <p className="eyebrow">{categoryNames[product.category]}</p>
           <h2>{product.name}</h2>
@@ -1453,7 +1476,7 @@ function CartDrawer({ cart, isOpen, shipping, subtotal, total, onClose, onRemove
           {cart.length === 0 && <p className="empty-cart">Add routers, switches, or accessories and they will appear here.</p>}
           {cart.map((item) => (
             <article className="cart-item" key={item.id}>
-              <ProductImage product={item} width="96" height="78" />
+              <ProductImage product={item} width="96" height="78" sizes="96px" />
               <div>
                 <h3>{item.name}</h3>
                 <p>{formatMoney(item.price)} / {categoryNames[item.category]}</p>

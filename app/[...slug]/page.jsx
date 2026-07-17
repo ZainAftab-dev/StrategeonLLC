@@ -1,6 +1,7 @@
 import App from '../../src/App.jsx';
 
-export default function CatchAllPage({ params }) {
-  const path = '/' + (params.slug || []).join('/');
+export default async function CatchAllPage({ params }) {
+  const { slug } = await params;
+  const path = '/' + (slug || []).join('/');
   return <App initialRoute={path} />;
 }
