@@ -1404,12 +1404,37 @@ function QuickView({ product, navigate, onAddToCart, onClose }) {
 
 function CartDrawer({ cart, isOpen, shipping, subtotal, total, onClose, onRemove, onUpdateQuantity }) {
   const [checkoutStatus, setCheckoutStatus] = useState('');
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   useEffect(() => {
     if (!cart.length) {
       setCheckoutStatus('');
     }
   }, [cart.length]);
+
+  async function handleCheckout() {
+    setIsCheckingOut(true);
+    setCheckoutStatus('Redirecting to secure checkout...');
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cart.map(({ id, quantity }) => ({ id, quantity })),
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.url) {
+        setCheckoutStatus(data.error || 'Something went wrong. Please try again.');
+        setIsCheckingOut(false);
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      setCheckoutStatus('Network error. Please try again.');
+      setIsCheckingOut(false);
+    }
+  }
 
   return (
     <div className={isOpen ? 'drawer-layer open' : 'drawer-layer'} aria-hidden={!isOpen}>
@@ -1450,10 +1475,10 @@ function CartDrawer({ cart, isOpen, shipping, subtotal, total, onClose, onRemove
           <button
             className="checkout-button"
             type="button"
-            disabled={!cart.length}
-            onClick={() => setCheckoutStatus('Checkout is ready. Payment connection is not included in this demo build.')}
+            disabled={!cart.length || isCheckingOut}
+            onClick={handleCheckout}
           >
-            Checkout
+            {isCheckingOut ? 'Redirecting...' : 'Checkout'}
           </button>
           <p aria-live="polite">{checkoutStatus}</p>
         </div>

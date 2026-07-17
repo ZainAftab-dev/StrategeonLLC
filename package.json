@@ -49,6 +49,7 @@
     "react-dom": "19.2.6",
     "recharts": "latest",
     "sonner": "latest",
+    "stripe": "^22.3.2",
     "tw-animate-css": "latest",
     "vaul": "latest"
   },
